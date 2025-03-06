@@ -141,3 +141,5 @@ notebook/templates/*.html
 
 # Ignore the images folder
 Datasets/artifact_dataset/images/
+
+artifact_dataset/images/
