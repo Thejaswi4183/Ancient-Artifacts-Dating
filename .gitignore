@@ -143,3 +143,7 @@ notebook/templates/*.html
 Datasets/artifact_dataset/images/
 
 artifact_dataset/images/
+
+artifact_dataset/augmented_images/
+
+final_artifact_date_model.keras
