@@ -148,4 +148,5 @@ artifact_dataset/augmented_images/
 
 artifact_date_model.keras
 
+age_scaler.pkl
 final_artifact_date_model.keras
