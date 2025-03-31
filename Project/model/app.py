@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import tensorflow as tf
 import numpy as np
 import cv2
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.sequence import pad_sequences # type: ignore
 import pickle
 
 app = Flask(__name__)

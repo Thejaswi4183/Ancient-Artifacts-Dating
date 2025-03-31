@@ -1,96 +1,138 @@
-/* === Reset === */
+/* === Import Font for Ancient Look === */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;700&display=swap");
+
+/* === Reset & Base Styling === */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  /* === Root Styling === */
-  html, body {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #141e30, #243b55);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* === Container === */
-  .container {
-    width: 90%;
-    max-width: 600px;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(12px);
-    text-align: center;
-  }
-  
-  /* === Header === */
-  .header {
-    font-size: 26px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    color: #fff;
-  }
-  
-  /* === Form === */
-  .input-field {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: 16px;
-    transition: all 0.3s;
-  }
-  
-  .input-field:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  /* === Button === */
-  button {
-    width: 100%;
-    padding: 12px;
-    background: #e47004ea;
-    color: #fff;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  button:hover {
-    background: #ff884d;
-  }
-  
-  /* === Prediction Result === */
-  .results, .error {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 500;
-  }
-  
-  .results {
-    background: rgba(46, 204, 113, 0.2);
-    border: 1px solid #2ecc71;
-    color: #2ecc71;
-  }
-  
-  .error {
-    background: rgba(231, 76, 60, 0.2);
-    border: 1px solid #e74c3c;
-    color: #e74c3c;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cinzel", serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: url('../public/ancient-paper-texture.jpeg') center/cover no-repeat; /* Use an aged parchment texture */
+  color: #4a3b2a; /* Dark brown for an old manuscript effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* === Container Styling (Resembling an Ancient Scroll) === */
+.container {
+  width: 90%;
+  max-width: 650px;
+  padding: 40px;
+  background: rgba(255, 248, 220, 0.95); /* Aged parchment color */
+  border-radius: 15px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4);
+  border: 5px solid #9c6b30; /* Golden-brown frame */
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease-in-out;
+}
+
+/* === Header (Antique Title Styling) === */
+.header {
+  font-size: 30px;
+  font-weight: bold;
+  color: #8b5a2b; /* Deep brown for authenticity */
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* === File Upload (Scroll-like Button) === */
+.file-upload {
+  display: block;
+  background: linear-gradient(to bottom, #c49a6c, #8b5a2b);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: fit-content;
+  margin: 0 auto 15px;
+}
+
+.file-upload:hover {
+  background: linear-gradient(to bottom, #8b5a2b, #6a4428);
+  transform: scale(1.05);
+}
+
+.file-upload input {
+  display: none;
+}
+
+/* === Text Input (Old Ink Look) === */
+.input-field {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  border: 2px solid #8b5a2b;
+  border-radius: 8px;
+  background: rgba(245, 222, 179, 0.8); /* Aged paper look */
+  color: #4a3b2a;
+  font-size: 18px;
+  resize: none;
+  transition: all 0.3s;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.input-field:focus {
+  outline: none;
+  background: rgba(245, 222, 179, 1);
+  box-shadow: 0px 0px 10px rgba(155, 80, 10, 0.4);
+}
+
+/* === Submit Button (Golden Glow) === */
+button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to bottom, #d4af37, #a67c00);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(to bottom, #e0c068, #b8860b);
+  transform: translateY(-3px);
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+/* === Results & Errors === */
+.results, .error {
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.results {
+  background: rgba(189, 183, 107, 0.5);
+  border: 2px solid #b8860b;
+  color: #8b4513;
+}
+
+.error {
+  background: rgba(139, 69, 19, 0.5);
+  border: 2px solid #8b0000;
+  color: #8b0000;
+}
