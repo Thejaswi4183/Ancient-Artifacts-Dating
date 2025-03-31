@@ -4,6 +4,7 @@ import numpy as np
 import cv2
 from tensorflow.keras.preprocessing.sequence import pad_sequences # type: ignore
 import pickle
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -34,8 +35,11 @@ def predict():
 
     # Make prediction
     age_pred = model.predict([image_input, text_input])[0][0]
+    current_year = datetime.now().year
+    age=current_year - age_pred
+
     
-    return jsonify({"age": f"{float(age_pred):.2f}"})
+    return jsonify({"age": f"{float(age):.2f}"})
 
 if __name__ == "__main__":
     app.run(debug=True)
