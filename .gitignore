@@ -159,4 +159,5 @@ final_artifact_date_model.keras
 
 Project/text_tokenizer.pkl
 Project/final_artifact_date_model.keras
+final_multimodal_model.keras
 Project/model/final_multimodal_model.keras
