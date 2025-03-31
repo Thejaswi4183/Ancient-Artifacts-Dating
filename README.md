@@ -8,6 +8,7 @@ This project uses machine learning and image processing techniques to automatica
 - A Jupyter Notebook (`.ipynb`) that demonstrates how to use the model and analyze artifacts.
 - Datasets containing images of coins, sculptures, and inscriptions, along with metadata (e.g., historical context, origin).
 - Preprocessing scripts to prepare the data for model training.
+- Nextjs app for the frontend
 
 The goal is to develop a tool that can help historians, archaeologists, and researchers by automating the dating process, improving accuracy and efficiency.
 
@@ -16,6 +17,11 @@ The goal is to develop a tool that can help historians, archaeologists, and rese
 The dataset used in this project includes:
 - **Images**: High-quality images of coins, sculptures, and inscriptions.(Sadly due to the size of the images, Dataset/artifact_dataset/images is not uploaded here
 - **CSV File**: Contains metadata such as artifact type, origin, historical context, and known dates.
+
+
+## FrontEnd
+
+Nextjs
 
 
 
