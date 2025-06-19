@@ -127,6 +127,9 @@ ui-tests/playwright-report
 # VSCode
 .vscode
 
+#env
+.env
+
 # RTC
 .jupyter_ystore.db
 
