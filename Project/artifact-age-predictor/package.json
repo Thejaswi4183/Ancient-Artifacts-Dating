@@ -9,19 +9,39 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/auth-helpers-react": "^0.5.0",
+    "@supabase/auth-ui-react": "^0.4.7",
+    "@supabase/supabase-js": "^2.50.0",
     "axios": "^1.8.4",
+    "date-fns": "^4.1.0",
     "formik": "^2.4.6",
+    "framer-motion": "^12.18.1",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "toastify-js": "^1.12.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "Ancient Artifacts Age Predictor",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thejaswi4183/artifact-age-predictor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thejaswi4183/artifact-age-predictor/issues"
+  },
+  "homepage": "https://github.com/Thejaswi4183/artifact-age-predictor#readme"
 }

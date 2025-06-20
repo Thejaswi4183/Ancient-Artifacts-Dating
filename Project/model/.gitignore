@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# Mac OS
+.DS_Store
+
+# VSCode settings
+.vscode/
+
+# Model files
+*.keras
+*.h5
+*.pkl
+*.pb
+
+# Jupyter notebooks (if any)
+.ipynb_checkpoints/
+
+# Log files
+*.log
+
+# Python egg
+*.egg
+*.egg-info/
+
+# FastAPI cache
+*.db
+__pypackages__/
