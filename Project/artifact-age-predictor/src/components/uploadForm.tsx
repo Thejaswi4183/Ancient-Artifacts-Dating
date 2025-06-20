@@ -1,8 +1,12 @@
 "use client";
+
+import { useSession } from "@supabase/auth-helpers-react";
 import { useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const UploadForm = () => {
+  const session = useSession();
   const [image, setImage] = useState<File | null>(null);
   const [text, setText] = useState("");
   const [prediction, setPrediction] = useState<number | null>(null);
@@ -32,7 +36,7 @@ const UploadForm = () => {
 
     try {
       const { data } = await axios.post("/api/predict", formData);
-      setPrediction(data.age);
+      setPrediction(parseFloat(data.age).toFixed(2) as unknown as number);
     } catch (error) {
       console.error("Prediction error", error);
       setError("Failed to get prediction. Please try again.");
@@ -41,15 +45,29 @@ const UploadForm = () => {
     }
   };
 
+  if (!session) return <p>Please log in to access prediction features.</p>;
+
   return (
-    <div className="container">
+    <motion.div
+      className="container"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="header">📜 Artifact Age Predictor</h2>
 
       <label className="file-upload">
         Select Image
         <input type="file" accept="image/*" onChange={handleImageChange} />
       </label>
-      {image && <p className="text-sm mt-2 text-green-600">{image.name}</p>}
+
+      {image && (
+        <img
+          src={URL.createObjectURL(image)}
+          alt="Preview"
+          className="image-preview"
+        />
+      )}
 
       <textarea
         placeholder="Enter historical notes (optional)"
@@ -63,8 +81,13 @@ const UploadForm = () => {
       </button>
 
       {error && <p className="error">{error}</p>}
-      {prediction && <p className="results">🏺 Predicted Age: {prediction} years</p>}
-    </div>
+
+      {prediction && (
+        <center>
+          <p className="results">🏺 Predicted Age: {prediction} years</p>
+        </center>
+      )}
+    </motion.div>
   );
 };
 

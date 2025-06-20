@@ -1,33 +1,38 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../../styles/globals.css";
+import "../styles/globals.css";
+import SupabaseProvider from "../components/SupabaseProvider";
+import ClientLayout from "../components/ClientLayout";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
+export const metadata = {
   title: "Artifact Age Predictor",
-  description: "Upload an image of an artifact and predict its age using AI.",
+  description: "Predict the age of historical artifacts using AI",
+  icon:"/favicon.ico",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const supabase = createServerComponentClient({ cookies });
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-r from-[#141e30] to-[#243b55] text-white`}
-      >
-        {children}
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body>
+        <SupabaseProvider session={session}>
+          <div className="page-wrapper">
+            <ClientLayout>{children}</ClientLayout>
+          </div>
+        </SupabaseProvider>
       </body>
     </html>
   );
