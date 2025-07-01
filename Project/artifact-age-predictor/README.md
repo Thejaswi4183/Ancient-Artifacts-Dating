@@ -1,1 +1,0 @@
-Ancient Artifacts Age Predictor

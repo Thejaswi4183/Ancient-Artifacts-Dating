@@ -1,11 +1,31 @@
 'use client';
 
-import { useSession } from '@supabase/auth-helpers-react';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import UploadForm from '@/components/UploadForm';
 import { motion } from 'framer-motion';
 
 export default function UploadPage() {
   const session = useSession();
+  const supabase = useSupabaseClient();
+  const router = useRouter();
+
+  // 👇 Fix: Handle OAuth redirect and restore session
+  useEffect(() => {
+    const handleOAuth = async () => {
+      const {
+        data: { session },
+        error,
+      } = await supabase.auth.getSession();
+
+      if (session) {
+        router.replace('/upload'); // strip ?code=... from URL
+      }
+    };
+
+    handleOAuth();
+  }, [supabase, router]);
 
   if (!session?.user) {
     return (
