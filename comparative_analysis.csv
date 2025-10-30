@@ -1,0 +1,4 @@
+Model,Accuracy (%),Precision (%),Recall (%),F1-Score (%)
+ResNet50 Only,72.3,71.0,70.5,70.7
+BiLSTM Only,68.5,67.2,66.0,66.6
+ResNet50 + BiLSTM (Fusion),81.4,80.2,79.5,79.8
