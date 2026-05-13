@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
     if (!(image instanceof File)) {
       return NextResponse.json(
         { error: "Invalid image file" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
       console.error("Storage Upload Error:", uploadError);
       return NextResponse.json(
         { error: "Image upload failed" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -55,14 +55,15 @@ export async function POST(req: NextRequest) {
     // Predict using backend
     const uploadForm = new FormData();
     uploadForm.append("file", image);
-    uploadForm.append("text", text || "");
+    uploadForm.append("text", String(text || " "));
 
     const backendResponse = await axios.post(
-      "https://fastapi-app-production-a3db.up.railway.app/predict",
+      `${process.env.NEXT_PUBLIC_API_URL}/predict`,
       uploadForm,
       {
         headers: { "Content-Type": "multipart/form-data" },
-      }
+        timeout: 60000,
+      },
     );
 
     const age = (parseFloat(backendResponse.data.age) * 100) / 100;
@@ -78,7 +79,7 @@ export async function POST(req: NextRequest) {
             session.user.user_metadata?.full_name ||
             session.user.user_metadata?.name ||
             "Anonymous",
-          notes: text,
+          notes: text && text.trim() ? text : null,
           prediction: age,
           image_url: publicUrl,
           user_id: session.user.id,

@@ -4,13 +4,6 @@ A full-stack web app that predicts the age of ancient artifacts (like coins, scu
 
 ---
 
-## 🌐 Live Demo
-
-**Frontend:** https://artifact-age-predictor.vercel.app/auth  
-**Backend API:** https://fastapi-app-production-a3db.up.railway.app/
-
----
-
 ## ✨ Features
 
 - 📸 Upload ancient artifact images
